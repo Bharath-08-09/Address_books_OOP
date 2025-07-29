@@ -51,3 +51,10 @@ class ContactBook:
             for idx, p in enumerate(self.contacts, 1):
                 file.write(f"{idx}. {str(p)}\n")
         print("📄 Saved as TXT.")
+    def export_csv(self, filename):
+        with open(filename, "w", newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=self.contacts[0].to_dict().keys())
+            writer.writeheader()
+            writer.writerows([p.to_dict() for p in self.contacts])
+        print("📄 Saved as CSV.")
+
