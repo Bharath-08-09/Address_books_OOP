@@ -7,3 +7,8 @@ class BookSearcher:
         for book in self.books.values():
             results += book.city_directory.get(city, [])
         return results
+    def search_by_state(self, state):
+        results = []
+        for book in self.books.values():
+            results += book.state_directory.get(state, [])
+        return results
