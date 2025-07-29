@@ -38,3 +38,11 @@ class ContactBook:
 
     def find_by_first_name(self, first_name):
         return [[p.first_name, p.last_name] for p in self.contacts if p.first_name == first_name]
+
+    def remove_person(self, first_name, last_name=None):
+        for p in self.contacts:
+            if p.first_name == first_name and (last_name is None or p.last_name == last_name):
+                self.contacts.remove(p)
+                print("✅ Contact deleted.")
+                return
+        print("⚠️ Contact not found.")
