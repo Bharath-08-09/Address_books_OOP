@@ -14,3 +14,8 @@ class BookSearcher:
         return results
 #UC7 alreayd done above
 #UC8 alreayd done above
+    def count_by_city(self, city):
+        count = 0
+        for book in self.books.values():
+            count += len(book.city_directory.get(city, []))
+        return count
