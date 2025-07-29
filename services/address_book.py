@@ -57,4 +57,9 @@ class ContactBook:
             writer.writeheader()
             writer.writerows([p.to_dict() for p in self.contacts])
         print("📄 Saved as CSV.")
+    def export_json(self, filename):
+        with open(filename, "w") as f:
+            json.dump([p.to_dict() for p in self.contacts], f, indent=4)
+        print("📄 Saved as JSON.")
+
 
