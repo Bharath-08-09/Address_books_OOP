@@ -37,7 +37,7 @@ class AddressBookApp:
             elif option == 3:
                 name = input("Book name to view: ")
                 book = AddressBookApp.system.get_book(name)
-                for p in sorted(book.contacts, key=lambda x: x.first_name.lower()):
+                for p in sorted(book.contacts, key=lambda x: x.first_name.lower()): #UC10
                     print(p)
 
             elif option == 4:
