@@ -22,7 +22,7 @@ class ContactBook:
         self.state_directory.setdefault(new_person.state, []).append(new_person)
 
         print("✅ Contact successfully added.")
-        
+
     def update_person(self, first_name, field=None, new_value=None, last_name_hint=None, **kwargs):
         edit_fields = kwargs.copy()
         if field and new_value:
@@ -46,3 +46,8 @@ class ContactBook:
                 print("✅ Contact deleted.")
                 return
         print("⚠️ Contact not found.")
+    def export_txt(self, filename):
+        with open(filename, "w", encoding="utf-8") as file:
+            for idx, p in enumerate(self.contacts, 1):
+                file.write(f"{idx}. {str(p)}\n")
+        print("📄 Saved as TXT.")
