@@ -1,7 +1,7 @@
 import json
 import csv
 from utils.validation import validate_input
-from models.person import Person
+from models.contact import Person
 
 class ContactBook:
     def __init__(self, name):

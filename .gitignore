@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test cache
+.pytest_cache/
+.coverage
+
+# Virtual environments
+venv/
+myenv/
+.env/
+
+# Editor and OS-specific files
+.DS_Store
+Thumbs.db
+
+# VSCode workspace settings (optional)
+.vscode/
+
+# Log files
+*.log
+
+# Exported data (optional, if you don’t want to commit test output)
+data/*.csv
+data/*.json
+data/*.txt
