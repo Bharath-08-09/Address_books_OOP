@@ -22,3 +22,19 @@ class ContactBook:
         self.state_directory.setdefault(new_person.state, []).append(new_person)
 
         print("✅ Contact successfully added.")
+        
+    def update_person(self, first_name, field=None, new_value=None, last_name_hint=None, **kwargs):
+        edit_fields = kwargs.copy()
+        if field and new_value:
+            edit_fields[field] = new_value
+
+        for person in self.contacts:
+            if person.first_name == first_name and (last_name_hint is None or person.last_name == last_name_hint):
+                for attr, val in edit_fields.items():
+                    setattr(person, attr, val)
+                print("✅ Contact updated.")
+                return
+        print("⚠️ Contact not found.")
+
+    def find_by_first_name(self, first_name):
+        return [[p.first_name, p.last_name] for p in self.contacts if p.first_name == first_name]
